@@ -27,21 +27,34 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <h1>Total:{count}</h1>
+    <>
+      <h1 className="text-center text-2xl">Total:{count}</h1>
 
-      <button onClick={handleIncrement}>increment</button>
-      <br />
-      <button onClick={handleDecrement}>decrement</button>
-
-      {data?.map((user) => (
-        <div key={user.id}>
-          <p>{user.name}</p>
-          <p>{user.username}</p>
-          <p>{user.email}</p>
-        </div>
-      ))}
-    </div>
+      <div className="flex justify-center gap-x-2">
+        <button
+          className="bg-green-500 px-3 py-2 rounded-md"
+          onClick={handleIncrement}
+        >
+          increment
+        </button>
+        <br />
+        <button
+          className="bg-blue-500 px-3 py-2 rounded-md"
+          onClick={handleDecrement}
+        >
+          decrement
+        </button>
+      </div>
+      <div className="grid grid-cols-3 mx-auto gap-3">
+        {data?.map((user) => (
+          <div className="bg-zinc-800 p-4" key={user.id}>
+            <p>{user.name}</p>
+            <p>{user.username}</p>
+            <p>{user.email}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
